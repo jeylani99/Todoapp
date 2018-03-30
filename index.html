@@ -1,0 +1,38 @@
+{% extends 'todoapp/base.html' %}
+<html>
+    <head>
+    </head>
+
+    <body>
+        {% block body %} 
+
+     
+
+         <div class="container">
+             <h2>List of Bula in Garissa and Facts about them</h2>
+             <p>Learn Garissa County</p>
+             <table class="table">
+                 <thead>
+                     <tr>
+                         <th>Bula Name</th>
+                         <th>Facts</th>
+                         <th>Action</th>
+                     </tr>
+                 </thead>
+                 
+                 <tbody>
+                        {% if task_list %}
+                        {% for task in object_list %}
+                        <tr class="active">
+                            <td> <a href="{% url 'todoapp:detail' task.id %}">{{task.task_name}}</a> </td>
+                            <td><b>{{task.task_priority}}</b></td>
+                            <td><button type="button" class="btn btn-info">Info</button></td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+                 </tbody>
+             </table>
+         </div>
+        {% endblock %}
+    </body>
+</html>
